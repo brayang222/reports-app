@@ -1,9 +1,10 @@
-import { Button } from "@/components/ui/button";
+import { SignOutButton } from "@/components/login/SignOutButton";
 
 export default function Home() {
   return (
-    <div className="bg-black text-white">
-      <Button>Click me</Button>
+    <div>
+      gola
+      <SignOutButton />
     </div>
   );
 }
