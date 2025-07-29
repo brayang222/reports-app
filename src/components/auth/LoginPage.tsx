@@ -13,7 +13,6 @@ import { authClient } from "@/lib/auth-client";
 
 export const LoginPage = () => {
   const handleGithubLogin = async () => {
-    console.log("GitHub login clicked");
     await authClient.signIn.social({
       callbackURL: "/",
       provider: "github",

@@ -1,10 +1,5 @@
-import { SignOutButton } from "@/components/login/SignOutButton";
+import { SignOutButton } from "@/components/auth/SignOutButton";
 
 export default function Home() {
-  return (
-    <div>
-      gola
-      <SignOutButton />
-    </div>
-  );
+  return <div>gola</div>;
 }
