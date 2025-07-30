@@ -5,9 +5,7 @@ Este es un proyecto [Next.js](https://nextjs.org) con autenticación, Prisma y P
 ## 🚀 Despliegue
 
 El proyecto está desplegado en Vercel:  
-[https://reports-app-vercel-url.vercel.app](https://reports-app-vercel-url.vercel.app)
-
-> Cambia la URL por la de tu despliegue real si es necesario.
+[https://reports-app-eta.vercel.app/](https://reports-app-eta.vercel.app/)
 
 ## 🛠️ Requisitos
 
