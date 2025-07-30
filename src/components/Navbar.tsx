@@ -12,7 +12,7 @@ export const Navbar = () => {
 
   const { data: session } = authClient.useSession();
 
-  if (location === "/login") return <></>;
+  if (location === "/login" || location === "/api/docs") return <></>;
 
   return (
     <nav className="bg-card border-b border-border shadow-sm sticky top-0 z-50">

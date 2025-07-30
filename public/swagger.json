@@ -1,0 +1,142 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/users": {
+      "get": {
+        "summary": "Obtener todos los usuarios",
+        "responses": {
+          "200": {
+            "description": "Lista de usuarios",
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/reports": {
+      "get": {
+        "summary": "Obtener todos los reportes",
+        "responses": {
+          "200": {
+            "description": "Lista de reportes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Reports"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "clxxx9999ab9r0l8xx8r"
+          },
+          "name": {
+            "type": "string",
+            "example": "Brayan Gómez"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "brayan@example.com"
+          },
+          "emailVerified": {
+            "type": "boolean",
+            "example": true
+          },
+          "image": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://example.com/avatar.jpg"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-07-28T19:45:00.000Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-07-29T10:10:00.000Z"
+          },
+          "phone": {
+            "type": "string",
+            "example": "+57 3001234567"
+          },
+          "role": {
+            "type": "string",
+            "enum": ["ADMIN", "USER"],
+            "example": "ADMIN"
+          },
+          "banned": {
+            "type": ["boolean", "null"],
+            "example": null
+          },
+          "banReason": {
+            "type": ["string", "null"],
+            "example": null
+          },
+          "banExpires": {
+            "type": ["string", "null"],
+            "format": "date-time",
+            "example": null
+          }
+        }
+      },
+      "Reports": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "exp_abc123"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["REVENUE", "EXPENSE"],
+            "example": "EXPENSE"
+          },
+          "concept": {
+            "type": "string",
+            "example": "Compra de materiales"
+          },
+          "amount": {
+            "type": "number",
+            "format": "float",
+            "example": 45000.75
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-07-28T16:30:00.000Z"
+          },
+          "userId": {
+            "type": "string",
+            "example": "user_xyz789"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        }
+      }
+    }
+  }
+}
