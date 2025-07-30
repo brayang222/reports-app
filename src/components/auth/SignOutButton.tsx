@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 export const SignOutButton = () => {
   const handleGithubLogOut = async () => {
     await authClient.signOut();
-    redirect("login");
+    redirect("/login");
   };
 
   return (

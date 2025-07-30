@@ -119,4 +119,12 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .text-success {
+    @apply text-green-500;
+  }
+
+  .text-destructive {
+    @apply text-red-400;
+  }
 }

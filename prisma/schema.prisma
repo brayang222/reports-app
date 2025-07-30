@@ -16,6 +16,24 @@ datasource db {
 
 }
 
+enum ReportType {
+  REVENUE
+  EXPENSE
+}
+
+model Report {
+  id        String   @id @default(cuid())
+  type      ReportType @default(EXPENSE)
+  concept   String
+  amount    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("report")
+}
+
 enum Role {
   ADMIN
   USER
@@ -37,6 +55,8 @@ model User {
   banned     Boolean?
   banReason  String?
   banExpires DateTime?
+
+  Report Report[]
 
   @@unique([email])
   @@map("user")

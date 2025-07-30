@@ -11,7 +11,6 @@ export const Navbar = () => {
   const isActive = (path: string) => location === path;
 
   const { data: session } = authClient.useSession();
-  console.log(session);
 
   if (location === "/login") return <></>;
 
