@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Reports App
 
-## Getting Started
+Este es un proyecto [Next.js](https://nextjs.org) con autenticación, Prisma y PostgreSQL.
 
-First, run the development server:
+## 🚀 Despliegue
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+El proyecto está desplegado en Vercel:  
+[https://reports-app-vercel-url.vercel.app](https://reports-app-vercel-url.vercel.app)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> Cambia la URL por la de tu despliegue real si es necesario.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Requisitos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 18+ o [Bun](https://bun.sh/) (recomendado)
+- PostgreSQL (puedes usar Supabase, Railway, etc.)
+- Variables de entorno configuradas (`.env`)
 
-## Learn More
+## ⚡ Instalación y ejecución local
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clona el repositorio:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git clone https://github.com/brayang222/reports-app.git
+   cd reports-app
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Instala las dependencias:**  
+   Si usas **Bun**:
 
-## Deploy on Vercel
+   ```bash
+   bun install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   O si prefieres npm/yarn:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   npm install
+   # o
+   yarn install
+   ```
+
+3. **Configura las variables de entorno:**  
+   Copia el archivo `.env.example` a `.env` y completa tus credenciales de base de datos y autenticación.
+
+4. **Ejecuta las migraciones de la base de datos:**
+
+   ```bash
+   npx prisma migrate dev
+   ```
+
+5. **Inicia el servidor de desarrollo:**  
+   Con **Bun**:
+
+   ```bash
+   bun run dev
+   ```
+
+   O con npm/yarn:
+
+   ```bash
+   npm run dev
+   # o
+   yarn dev
+   ```
+
+6. **Abre la app en tu navegador:**  
+   [http://localhost:3000](http://localhost:3000)
+
+## 📦 Despliegue en Vercel
+
+1. Sube tu repositorio a GitHub.
+2. Ve a [https://vercel.com/new](https://vercel.com/new) y conecta tu repositorio.
+3. Configura las variables de entorno en Vercel (igual que en `.env`).
+4. Haz deploy.
+
+## 📚 Recursos útiles
+
+- [Documentación Next.js](https://nextjs.org/docs)
+- [Documentación Prisma](https://www.prisma.io/docs/)
+- [Vercel](https://vercel.com/)
+- [Bun](https://bun.sh/)
+
+---
