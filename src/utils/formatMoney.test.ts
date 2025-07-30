@@ -3,7 +3,7 @@ import { formatMoney } from "./formatMoney";
 describe("formatMoney", () => {
   it("formatea correctamente un número a moneda COP", () => {
     const resultado = formatMoney(123456);
-    expect(resultado).toBe("$ 123.456,00"); // puede variar si tu sistema usa otro símbolo o espacio
+    expect(resultado).toBe("$ 123.456,00");
   });
 
   it("formatea correctamente un número pequeño a moneda COP", () => {
