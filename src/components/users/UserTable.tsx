@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Edit, UserCheck, Users } from "lucide-react";
 import {
@@ -14,36 +13,19 @@ import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 import { UserEditForm } from "./UserEditForm";
-import { useRouter } from "next/navigation";
+import { User } from "@/types/user";
+import { useUserTable } from "@/hooks/useUserTable";
 
-export interface User {
-  id: string;
-  name: string;
-  email: string;
-  phone?: string;
-  role: "ADMIN" | "USER";
-}
-
-export const UserTable = ({ users }: { users: User[] }) => {
-  const [editingUser, setEditingUser] = useState<User | null>(null);
-  const router = useRouter();
-
-  const handleEditUser = (user: User) => {
-    setEditingUser(user);
-  };
-
-  const handleSaveUser = async () => {
-    setEditingUser(null);
-    // router.refresh();
-  };
-
-  const handleCancelEdit = () => {
-    setEditingUser(null);
-  };
-
-  const getRoleBadgeVariant = (role: string) => {
-    return role === "ADMIN" ? "default" : "secondary";
-  };
+export const UserTable = () => {
+  const {
+    users,
+    getRoleBadgeVariant,
+    handleEditUser,
+    editingUser,
+    handleSaveUser,
+    handleCancelEdit,
+    setEditingUser,
+  } = useUserTable();
   return (
     <div className="space-y-6">
       <Card className="shadow-elegant border-0 bg-gradient-to-br from-card via-card to-accent/20">
@@ -85,7 +67,7 @@ export const UserTable = ({ users }: { users: User[] }) => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {users.map((user) => (
+                {users.map((user: User) => (
                   <TableRow
                     key={user.id}
                     className="hover:bg-muted/20 transition-colors"

@@ -1,19 +1,18 @@
 "use server";
-import { PrismaClient } from "@/generated/prisma";
-import { NewExpense } from "@/types/expense";
+import { User } from "@/types/user";
+import { PrismaClient } from "../../../prisma-generated/client";
 
 const prisma = new PrismaClient();
 
-export default async function updateUser(userData: any, userId: string) {
+export default async function updateUser(userData: User, userId: string) {
   try {
-    const data = await prisma.user.update({
+    await prisma.user.update({
       where: { id: userId },
       data: {
         name: userData.name,
         role: userData.role,
       },
     });
-    console.log(data);
   } catch (error) {
     console.error(error);
   }

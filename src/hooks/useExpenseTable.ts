@@ -1,13 +1,29 @@
+import { authClient } from "@/lib/auth-client";
 import { Expense } from "@/types/expense";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export const useExpenseTable = (expenses: Expense[]) => {
+export const useExpenseTable = () => {
+  const [expenses, setExpenses] = useState<Expense[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const fetchExpenses = async () => {
+    const res = await fetch("api/reports");
+    const data = await res.json();
+    setExpenses(data);
+  };
+
+  useEffect(() => {
+    fetchExpenses();
+  }, []);
+
+  const onAddExpense = () => {
+    fetchExpenses();
+  };
 
   const filteredExpenses = expenses.filter(
     (expense) =>
       expense.concept.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      expense.user.toLowerCase().includes(searchTerm.toLowerCase())
+      expense.user.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const totalRevenue = expenses
@@ -20,6 +36,8 @@ export const useExpenseTable = (expenses: Expense[]) => {
 
   const balance = totalRevenue - totalExpenses;
 
+  const { data: session } = authClient.useSession();
+
   return {
     searchTerm,
     setSearchTerm,
@@ -27,5 +45,8 @@ export const useExpenseTable = (expenses: Expense[]) => {
     totalRevenue,
     totalExpenses,
     balance,
+    onAddExpense,
+    expenses,
+    session,
   };
 };

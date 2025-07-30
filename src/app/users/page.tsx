@@ -1,10 +1,7 @@
 import { Settings, Shield } from "lucide-react";
 import { UserTable } from "@/components/users/UserTable";
-import getUsers from "../actions/getUsers";
 
 export default async function UsersPanel() {
-  const users = await getUsers();
-  console.log(users);
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto py-8 px-4">
@@ -24,8 +21,7 @@ export default async function UsersPanel() {
             </div>
           </div>
         </div>
-
-        <UserTable users={users} />
+        <UserTable />
       </div>
     </div>
   );

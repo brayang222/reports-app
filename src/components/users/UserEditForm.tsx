@@ -10,8 +10,8 @@ import {
 } from "../ui/select";
 import { Button } from "../ui/button";
 import { Save, X } from "lucide-react";
-import { User } from "./UserTable";
 import updateUser from "@/app/actions/updateUsers";
+import { User } from "@/types/user";
 
 interface UserEditFormProps {
   user: User;
@@ -25,10 +25,10 @@ export const UserEditForm = ({ user, onSave, onCancel }: UserEditFormProps) => {
     role: user.role,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    await updateUser(formData, user.id as string);
     onSave();
-    updateUser(formData, user.id);
   };
 
   const handleInputChange = (field: string, value: string) => {

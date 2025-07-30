@@ -1,9 +1,6 @@
-import getReports from "./actions/getReports";
 import { ExpenseTable } from "@/components/table/ExpenseTable";
 
 export default async function Home() {
-  const reports = await getReports();
-
   return (
     <div className="min-h-screen bg-background">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -15,8 +12,7 @@ export default async function Home() {
             Gestiona tus finanzas de manera eficiente
           </p>
         </div>
-
-        <ExpenseTable expenses={reports} />
+        <ExpenseTable />
       </main>
     </div>
   );

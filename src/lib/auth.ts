@@ -1,9 +1,9 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-import { PrismaClient, Role } from "@/generated/prisma";
 import { nextCookies } from "better-auth/next-js";
 import { admin } from "better-auth/plugins";
 import { adminClient } from "better-auth/client/plugins";
+import { PrismaClient, Role } from "../../prisma-generated/client";
 
 const prisma = new PrismaClient();
 

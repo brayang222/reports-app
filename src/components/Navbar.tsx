@@ -39,7 +39,7 @@ export const Navbar = () => {
                 Ingresos y Egresos
               </Link>
 
-              {session && (
+              {session && session.user?.role === "ADMIN" && (
                 <>
                   <Link
                     href="/users"
